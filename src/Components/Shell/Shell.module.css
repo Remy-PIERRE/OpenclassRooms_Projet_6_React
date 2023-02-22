@@ -1,0 +1,11 @@
+.small {
+    border-radius: 10px;
+}
+.big {
+    border-radius: 10px;
+}
+@media(min-width: 768px) {
+    .big {
+        border-radius: 25px;
+    }
+}

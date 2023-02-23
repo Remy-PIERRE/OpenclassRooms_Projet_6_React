@@ -3,6 +3,7 @@
   height: 110px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 30px;
 }
 .img {
   width: 100%;

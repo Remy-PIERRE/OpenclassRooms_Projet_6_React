@@ -1,0 +1,26 @@
+.container {
+    width: 80%;
+}
+.container h2 {
+    width: 100%;
+    padding: 15px 0 15px 20px;
+    font-size: 18px;
+    color: #fff;
+    background: var(--main-color);
+    border-radius: 10px;
+    /* margin-bottom: 20px; */
+}
+.container p {
+    padding: 30px 20px 20px;
+    background: #F6F6F6;
+    color: var(--main-color);
+    font-size: 14px;
+    
+    line-height: 150%;
+}
+.container ul {
+    padding: 30px 20px 20px;
+}
+.container ul p {
+    padding: 0;
+}

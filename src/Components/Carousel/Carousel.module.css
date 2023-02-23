@@ -1,0 +1,41 @@
+.carousel {
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.buttons {
+    width: 100%;
+    padding: 0 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+.buttons button {
+    background: transparent;
+    border: none;
+}
+.carousel i {
+    font-size: 50px;
+    color: #fff;
+}
+.counter {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    z-index: 1;
+}
+.counter p {
+    font-size: 18px;
+    color: var(--color-light);
+}

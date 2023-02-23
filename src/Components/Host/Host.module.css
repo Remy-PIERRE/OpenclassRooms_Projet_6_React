@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.container p {
+    padding-right: 15px;
+    text-align: end;
+    font-size: 18px;
+    color: var(--main-color);
+}
+.container img {
+    width: 64px;
+    height: auto;
+    border-radius: 100%;
+}

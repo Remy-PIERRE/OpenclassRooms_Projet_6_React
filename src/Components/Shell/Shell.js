@@ -1,5 +1,5 @@
 import styles from './Shell.module.css';
 
 export default function Shell(props) {
-    return <div className={`${styles[props.size]} ${props.className}`}>{props.children}</div>
+    return <div className={`${styles['shell']} ${props.className}`}>{props.children}</div>
 }

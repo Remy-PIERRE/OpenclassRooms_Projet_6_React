@@ -1,11 +1,8 @@
-.small {
-    border-radius: 10px;
-}
-.big {
+.shell {
     border-radius: 10px;
 }
 @media(min-width: 768px) {
-    .big {
+    .shell {
         border-radius: 25px;
     }
 }

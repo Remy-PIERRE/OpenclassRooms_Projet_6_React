@@ -13,8 +13,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 100vw;
-  margin: auto;
+  width: 100%;
 }
 main {
   width: 90%;

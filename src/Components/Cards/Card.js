@@ -1,23 +1,20 @@
-import Shell from "../Shell/Shell";
+import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 export default function CardsContainer(props) {
-  const clickHandler = (event) => {
-    console.log("click", event.target);
-    console.log("click");
-  };
-
   if (!props.data)
     return (
-      <Shell size="small" className={styles["card"]}>
+      <div className={`${styles["card"]} ${styles["gradient"]}`}>
         <p>Titre de la location</p>
-      </Shell>
+      </div>
     );
 
   return (
-    <Shell size="small" className={styles["card"]} onClick={clickHandler}>
-      <img src={props.data.cover} alt={props.data.title} onClick={clickHandler}/>
-      <p>{props.data.title}</p>
-    </Shell>
+    <div className={styles["container"]}>
+      <Link className={styles["card"]} to={'/location'} state={{ id: props.data.id}}>
+        <img src={props.data.cover} alt={props.data.title} />
+        <p>{props.data.title}</p>
+      </Link>
+    </div>
   );
 }

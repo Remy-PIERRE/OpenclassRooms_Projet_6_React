@@ -3,7 +3,7 @@ import styles from "./TopImage.module.css";
 
 export default function TopImage(props) {
   return (
-    <Shell className={styles["container"]} size="big">
+    <Shell className={styles["container"]}>
       <img
         className={styles["img"]}
         src={`/images/${props.imageUrl}`}

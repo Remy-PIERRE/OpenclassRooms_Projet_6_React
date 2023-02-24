@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-
 import Logo from "../Logo/Logo";
-
 import styles from "./Header.module.css";
 
-export default function Header() {
+function Header() {
   return (
-    <div className={styles['header']}>
+    <header className={styles['container']}>
       <Logo mainColor={true} />
-      <nav>
+      <nav className={styles['navbar']}>
         <Link to="/" className={styles['link']}>Accueil</Link>
         <Link to="/about" className={styles['link']}>&Agrave; propos</Link>
       </nav>
-    </div>
+    </header>
   );
 }
+
+export default Header;

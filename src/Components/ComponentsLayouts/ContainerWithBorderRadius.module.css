@@ -1,8 +1,8 @@
-.shell {
+.container {
     border-radius: 10px;
 }
 @media(min-width: 768px) {
-    .shell {
+    .container {
         border-radius: 25px;
     }
 }

@@ -1,8 +1,7 @@
 import { useState } from "react";
-
 import styles from "./FoldableArticle.module.css";
 
-export default function FoldableArticle(props) {
+function FoldableArticle({ title, text, list }) {
   const [opened, setOpened] = useState(false);
 
   const clickHandler = () => {
@@ -12,12 +11,12 @@ export default function FoldableArticle(props) {
   };
 
   return (
-    <div className={`${styles["container"]} ${props.className}`}>
-      <h2 onClick={clickHandler}>{props.title}</h2>
-      {opened && props.text && <p>{props.text}</p>}
-      {opened && props.list && (
+    <div className={styles["container"]}>
+      <h1 onClick={clickHandler}>{title}</h1>
+      {opened && text && <p>{text}</p>}
+      {opened && list && (
         <ul>
-          {props.list.map((elem) => (
+          {list.map((elem) => (
             <li>
               <p>{elem}</p>
             </li>
@@ -27,3 +26,5 @@ export default function FoldableArticle(props) {
     </div>
   );
 }
+
+export default FoldableArticle;

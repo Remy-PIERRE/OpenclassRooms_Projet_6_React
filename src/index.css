@@ -1,7 +1,7 @@
 :root {
-  --main-color: #FF6060;
-  --color-light: #fff;
-  --color-dark: #000;
+  --color-main: #FF6060;
+  /* --color-light: #fff;
+  --color-dark: #000; */
   --color-grey: #F6F6F6;
 }
 * {
@@ -20,9 +20,6 @@ main {
   max-width: 1240px;
   margin: 0 auto 50px;
 }
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
+#root > *:not(footer) {
+  width: 90%;
+}

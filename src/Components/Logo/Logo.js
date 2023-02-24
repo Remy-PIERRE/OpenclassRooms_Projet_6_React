@@ -1,28 +1,20 @@
 import styles from "./Logo.module.css";
 
-export default function Logo(props) {
+function Logo({ mainColor }) {
+  const logo = ["logoK", "logoHouse", "logoS", "logoA"];
+
   return (
-    <div className={styles["logo"]}>
-      <div
-        className={`${styles["kLetter"]} ${
-          props.mainColor && styles["mainColor"]
-        }`}
-      />
-      <div
-        className={`${styles["houseIcon"]} ${
-          props.mainColor && styles["mainColor"]
-        }`}
-      />
-      <div
-        className={`${styles["sLetter"]} ${
-          props.mainColor && styles["mainColor"]
-        }`}
-      />
-      <div
-        className={`${styles["aLetter"]} ${
-          props.mainColor && styles["mainColor"]
-        }`}
-      />
+    <div className={styles["container"]}>
+      {logo.map((letter) => (
+        <span
+          key={letter}
+          className={`${styles["logoElem"]} ${styles[letter]} ${
+            mainColor && styles["mainColor"]
+          }`}
+        />
+      ))}
     </div>
   );
 }
+
+export default Logo;

@@ -1,0 +1,42 @@
+.container {
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+}
+.title {
+    margin-top: 25%;
+  font-size: 96px;
+  color: var(--color-main);
+}
+.text {
+    margin-top: 10%;
+  font-size: 18px;
+  color: var(--color-main);
+  text-align: center;
+}
+.link {
+  font-size: 14px;
+  color: var(--color-main);
+  position: absolute;
+  bottom: 15%;
+}
+.link:hover {
+    text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 288px;
+    margin-top: 0;
+  }
+  .text {
+    font-size: 36px;
+    margin-top: 0;
+  }
+  .link {
+    font-size: 18px;
+  }
+}

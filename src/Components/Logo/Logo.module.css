@@ -1,59 +1,59 @@
-.logo {
+.container {
     display: flex;
     align-items: flex-end;
     gap: 5px;
 }
-.mainColor {
-    background-color: var(--main-color) !important;
-}
-.logo div {
-    background-color: var(--color-light);
+.logoElem {
+    background-color: #fff;
     mask-size: cover;
 }
-.kLetter {
+.logoK {
     width: 37px;
     height: 43px;
     -webkit-mask-image: url('/public/images/logo_k.svg');
     mask-image: url('/public/images/logo_k.svg');
 }
-.houseIcon {
+.logoHouse {
     width: 31px;
     height: 36px;
     margin-bottom: -2px;
     -webkit-mask-image: url('/public/images/logo_house.svg');
     mask-image: url('/public/images/logo_house.svg');
 }
-.sLetter {
+.logoS {
     width: 27px;
     height: 33px;
     -webkit-mask-image: url('/public/images/logo_s.svg');
     mask-image: url('/public/images/logo_s.svg');
 }
-.aLetter {
+.logoA {
     width: 27px;
     height: 33px; 
     -webkit-mask-image: url('/public/images/logo_a.svg');
     mask-image: url('/public/images/logo_a.svg');
 }
+.mainColor {
+    background-color: var(--color-main) !important;
+}
 
 @media (min-width: 768px) {
-    .logo {
+    .container {
         gap: 10px;
     }
-    .kLetter {
+    .logoK {
         width: 54px;
         height: 62px;
     }
-    .houseIcon {
+    .logoHouse {
         width: 46px;
         height: 53px;
         margin-bottom: -2px;
     }
-    .sLetter {
+    .logoS {
         width: 40px;
         height: 48px;
     }
-    .aLetter {
+    .logoA {
         width: 40px;
         height: 48px;
     }

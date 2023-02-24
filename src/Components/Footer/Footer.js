@@ -1,11 +1,13 @@
 import Logo from "../Logo/Logo";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+function Footer() {
   return (
-    <footer className={styles["footer"]}>
+    <footer className={styles["container"]}>
       <Logo mainColor={false} />
-      <p>© 2020 Kasa. All rights reserved</p>
+      <p className={styles["text"]}>© 2020 Kasa. All rights reserved</p>
     </footer>
   );
 }
+
+export default Footer;

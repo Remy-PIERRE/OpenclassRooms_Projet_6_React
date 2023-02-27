@@ -1,33 +1,30 @@
-import { useState, useEffect } from "react";
-import NormalPageLayout from "./PagesLayouts/NormalPageLayout";
+import { useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner/Banner";
 import CardsWrapper from "../Components/Cards/CardsWrapper";
 
 function Home() {
-  const [annonces, setAnnonces] = useState(false);
-
-  useEffect(() => {
-    if (annonces) return;
-    fetch("/data/annonces.json")
-      .then((response) => {
-        if (response.ok) return response.json();
-        throw response;
-      })
-      .then((data) => {
-        setAnnonces(data);
-      })
-      .catch((error) => console.log("error fetching annonces.json", error));
-  }, []);
+  const annonces = useLoaderData('annonces');
 
   return (
-    <NormalPageLayout>
+    <>
       <Banner
         imageUrl={"eric-muhr-P_XxsdVgtpQ-unsplash.jpg"}
         text={"Chez vous, partout et ailleurs"}
       />
+      {/* {annonces.isError && <p>{annonces.message}</p>} */}
       <CardsWrapper data={annonces} />
-    </NormalPageLayout>
+    </>
   );
 }
 
 export default Home;
+
+export const fetchAnnonces = async ({request, params}) => {
+  let response = await fetch("/data/annonces.json");
+  if (!response.ok)
+    throw {
+      message: "Oups! Le serveur ne répond pas.",
+      status: "500",
+    };
+  return response;
+};

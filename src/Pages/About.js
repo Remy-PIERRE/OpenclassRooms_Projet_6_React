@@ -1,30 +1,35 @@
-import { useState, useEffect } from "react";
-import NormalPageLayout from "./PagesLayouts/NormalPageLayout";
+import { useLoaderData, redirect } from "react-router-dom";
 import Banner from "../Components/Banner/Banner";
+import AboutFoldableArticleContainer from "../Components/FoldableArticle/AboutFoldableArticleContainer";
 import FoldableArticle from "../Components/FoldableArticle/FoldableArticle";
 
 function About() {
-  const [articles, setArticles] = useState(false);
-
-  useEffect(() => {
-    if (articles) return;
-    fetch("/data/about.json")
-      .then((response) => {
-        if (response.ok) return response.json();
-        throw response;
-      })
-      .then((data) => setArticles(data))
-      .catch((error) => console.log("error fetching about annonces", error));
-  }, []);
+  const articles = useLoaderData();
 
   return (
-    <NormalPageLayout>
+    <>
       <Banner imageUrl={"kalen-emsley-Bkci_8qcdvQ-unsplash 2.jpg"} />
-      {articles && articles.map(({title, text}) => (
-        <FoldableArticle key={title} title={title} text={text} />
-      ))}
-    </NormalPageLayout>
+      <AboutFoldableArticleContainer articles={articles} />
+    </>
   );
 }
 
 export default About;
+
+export const fetchArticles = async () => {
+  try {
+    let response = await fetch("/data/about.json");
+    if (!response.ok)
+      throw {
+        message: "Oups! Le serveur ne répond pas.",
+        status: "500",
+      };
+    response = await response.json();
+    return response;
+  } catch (error) {
+    throw {
+      message: "Oups! La page que vous demandez n'existe pas.",
+      status: "404",
+    };
+  }
+};

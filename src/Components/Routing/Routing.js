@@ -1,18 +1,35 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "../../Pages/Home";
-import About from "../../Pages/About";
-import PageNotFound from "../../Pages/PageNotFound";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home, { fetchAnnonces } from "../../Pages/Home";
+import About, { fetchArticles } from "../../Pages/About";
+import Accomodation, { fetchAnnonce } from "../../Pages/Accomodation";
+import PageLayout from "../../Pages/PageLayout";
+import ErrorLayout from "../../Pages/Error";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <PageLayout />,
+    errorElement: <ErrorLayout />,
+    children: [
+      {
+        children: [
+          { index: true, element: <Home />, loader: fetchAnnonces },
+          {
+            path: "accomodation/:id",
+            element: <Accomodation />,
+            loader: fetchAnnonce,
+          },
+        ],
+      },
+      { path: "about", element: <About />, loader: fetchArticles },
+    ],
+  },
+]);
 
 function Routing() {
   return (
     <>
-      <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-      </Routes>
+      <RouterProvider router={router} />
     </>
   );
 }

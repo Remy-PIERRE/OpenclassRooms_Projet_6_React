@@ -1,11 +1,12 @@
-.carousel {
+.container {
     width: 100%;
+    min-height: 255px;
     aspect-ratio: 3 / 1;
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
 }
-.carousel img {
+.container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -24,9 +25,12 @@
     background: transparent;
     border: none;
 }
-.carousel i {
+.container i {
     font-size: 50px;
     color: #fff;
+}
+.container i:hover, .counter span:hover {
+    color: var(--color-main);
 }
 .counter {
     width: 100%;
@@ -35,7 +39,7 @@
     text-align: center;
     z-index: 1;
 }
-.counter p {
+.counter span {
     font-size: 18px;
-    color: var(--color-light);
+    color: #fff;
 }

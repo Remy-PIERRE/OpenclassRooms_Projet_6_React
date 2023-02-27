@@ -16,10 +16,11 @@ body {
   width: 100%;
 }
 main {
-  width: 90%;
   max-width: 1240px;
   margin: 0 auto 50px;
 }
 #root > *:not(footer) {
   width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }

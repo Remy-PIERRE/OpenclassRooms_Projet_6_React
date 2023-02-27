@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+}
+.container > * {
+    width: 100%;
+}
+@media(min-width: 768px) {
+    .container {
+        flex-wrap: nowrap;
+    }
+}

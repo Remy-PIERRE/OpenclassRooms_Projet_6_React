@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 3px;
+}
+.container i {
+    font-size: 15px;
+    color: #E3E3E3
+}
+.active {
+    color: var(--color-main) !important;
+}
+@media(min-width: 768px) {
+    .container {
+        gap: 10px;
+    }
+    .container i {
+        font-size: 25px;
+    }
+}

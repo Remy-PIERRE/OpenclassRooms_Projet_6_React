@@ -1,14 +1,28 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <header className={styles['container']}>
+    <header className={styles["container"]}>
       <Logo mainColor={true} />
-      <nav className={styles['navbar']}>
-        <Link to="/" className={styles['link']}>Accueil</Link>
-        <Link to="/about" className={styles['link']}>&Agrave; propos</Link>
+      <nav className={styles["navbar"]}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? styles["activeLink"] : styles["link"]
+          }
+        >
+          Accueil
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? styles["activeLink"] : styles["link"]
+          }
+        >
+          &Agrave; propos
+        </NavLink>
       </nav>
     </header>
   );

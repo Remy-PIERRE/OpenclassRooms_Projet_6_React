@@ -1,27 +1,46 @@
 .container {
-  width: 80%;
   margin: 0 auto 30px;
 }
-.container h1 {
+.title {
   width: 100%;
-  padding: 15px 0 15px 20px;
-  font-size: 18px;
-  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--color-main);
   border-radius: 10px;
-  /* margin-bottom: 20px; */
+}
+.title h1 {
+  font-size: 18px;
+  color: #fff;
+}
+.title i {
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+}
+.iconReverse {
+  transform: rotate(180deg);
 }
 .container p {
+  height: 0%;
   padding: 30px 20px 20px;
   background: #f6f6f6;
   color: var(--color-main);
   font-size: 14px;
-
   line-height: 150%;
+}
+.textOpening {
+  height: 100%;
+  transition: 1s;
 }
 .container ul {
   padding: 30px 20px 20px;
 }
 .container ul p {
   padding: 0;
+}
+
+@keyframes opening {
+  from{height: 0} to{height:100%}
 }

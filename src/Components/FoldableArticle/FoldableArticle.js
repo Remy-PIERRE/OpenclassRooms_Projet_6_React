@@ -9,16 +9,30 @@ function FoldableArticle({ title, text, list }) {
       return prevState ? false : true;
     });
   };
+  const keyDownHandler = (event) => {
+    event.key === "Enter" && clickHandler();
+  };
 
   return (
     <div className={styles["container"]}>
-      <h1 onClick={clickHandler}>{title}</h1>
-      {opened && text && <p>{text}</p>}
+      <div
+        className={styles["title"]}
+        onClick={clickHandler}
+        onKeyDown={keyDownHandler}
+      >
+        <h1 tabIndex="0">{title}</h1>
+        <i
+          className={`fa-solid fa-chevron-down ${
+            opened && styles["iconReverse"]
+          }`}
+        ></i>
+      </div>
+      {opened && text && <p className={opened && styles['textOpening']} tabIndex="0">{text}</p>}
       {opened && list && (
         <ul>
-          {list.map((elem) => (
-            <li>
-              <p>{elem}</p>
+          {list.map((listElement) => (
+            <li key={listElement}>
+              <p tabIndex="0">{listElement}</p>
             </li>
           ))}
         </ul>

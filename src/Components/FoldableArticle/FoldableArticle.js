@@ -27,12 +27,20 @@ function FoldableArticle({ title, text, list }) {
           }`}
         ></i>
       </div>
-      {opened && text && <p className={opened && styles['textOpening']} tabIndex="0">{text}</p>}
+
+      {opened && text && (
+        <p tabIndex="0" onClick={clickHandler} onKeyDown={keyDownHandler}>
+          {text}
+        </p>
+      )}
+
       {opened && list && (
         <ul>
           {list.map((listElement) => (
             <li key={listElement}>
-              <p tabIndex="0">{listElement}</p>
+              <p tabIndex="0" onClick={clickHandler} onKeyDown={keyDownHandler}>
+                {listElement}
+              </p>
             </li>
           ))}
         </ul>

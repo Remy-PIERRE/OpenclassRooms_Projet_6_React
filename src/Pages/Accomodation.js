@@ -1,13 +1,12 @@
 import { useParams, useLoaderData, json } from "react-router-dom";
+import axios from "axios";
 import Carousel from "../Components/Carousel/Carousel";
 import AccomodationInfo from "../Components/AccomodationInfo/AccomodationInfo";
 import FoldableArticleContainer from "../Components/FoldableArticle/AccomodationFoldableArticleContainer";
 
 function Accomodation() {
   const { id } = useParams();
-  // const annonces = useLoaderData();
   const annonce = useLoaderData();
-  // const annonce = annonces.find((annonce) => annonce.id === id);
 
   return (
     <>
@@ -21,27 +20,20 @@ function Accomodation() {
 
 export default Accomodation;
 
-export const fetchAnnonce = async ({ request, params }) => {
+export const fetchAnnonce = async ({ params }) => {
+  const { id } = params;
   try {
-    const { id } = params;
-    let response = await fetch("/data/annonces.json");
-    if (!response.ok)
-      throw {
-        message: "Oups! Le serveur ne répond pas.",
-        status: "500",
-      };
-    response = await response.json();
-    if (response.find((annonce) => annonce.id === id).length === 0)
-      throw {
-        message: "Oups! La page que vous demandez n'existe pas.",
-        status: "404",
-      };
-    return response.find((annonce) => annonce.id === id);
+    const response = await axios.get("/data/annonces.json");
+    return response.data.find((annonce) => annonce.id === id);
   } catch (error) {
-    console.log("catch");
+    const status = error.response.status;
+    let message = "Oups! La page que vous demandez n'existe pas.";
+    if (status >= 500) {
+      message = "Oups! Le serveur ne répond pas.";
+    }
     throw {
-      message: "Oups! La page que vous demandez n'existe pas.",
-      status: "404",
+      message,
+      status,
     };
   }
 };

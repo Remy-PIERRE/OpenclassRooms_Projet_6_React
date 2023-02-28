@@ -1,9 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import axios from "axios";
 import Banner from "../Components/Banner/Banner";
 import CardsWrapper from "../Components/Cards/CardsWrapper";
 
 function Home() {
-  const annonces = useLoaderData('annonces');
+  const annonces = useLoaderData("annonces");
 
   return (
     <>
@@ -11,7 +12,6 @@ function Home() {
         imageUrl={"eric-muhr-P_XxsdVgtpQ-unsplash.jpg"}
         text={"Chez vous, partout et ailleurs"}
       />
-      {/* {annonces.isError && <p>{annonces.message}</p>} */}
       <CardsWrapper data={annonces} />
     </>
   );
@@ -19,12 +19,19 @@ function Home() {
 
 export default Home;
 
-export const fetchAnnonces = async ({request, params}) => {
-  let response = await fetch("/data/annonces.json");
-  if (!response.ok)
+export const fetchAnnonces = async () => {
+  try {
+    const response = await axios.get("/data/annonces.json");
+    return response.data;
+  } catch (error) {
+    const status = error.response.status;
+    let message = "Oups! La page que vous demandez n'existe pas.";
+    if (status >= 500) {
+      message = "Oups! Le serveur ne répond pas.";
+    }
     throw {
-      message: "Oups! Le serveur ne répond pas.",
-      status: "500",
+      message,
+      status,
     };
-  return response;
+  }
 };

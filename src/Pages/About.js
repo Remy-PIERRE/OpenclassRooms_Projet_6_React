@@ -1,7 +1,7 @@
-import { useLoaderData, redirect } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import axios from "axios";
 import Banner from "../Components/Banner/Banner";
 import AboutFoldableArticleContainer from "../Components/FoldableArticle/AboutFoldableArticleContainer";
-import FoldableArticle from "../Components/FoldableArticle/FoldableArticle";
 
 function About() {
   const articles = useLoaderData();
@@ -18,18 +18,17 @@ export default About;
 
 export const fetchArticles = async () => {
   try {
-    let response = await fetch("/data/about.json");
-    if (!response.ok)
-      throw {
-        message: "Oups! Le serveur ne répond pas.",
-        status: "500",
-      };
-    response = await response.json();
-    return response;
+    const response = await axios.get("/data/about.json");
+    return response.data;
   } catch (error) {
+    const status = error.response.status;
+    let message = "Oups! La page que vous demandez n'existe pas.";
+    if (status >= 500) {
+      message = "Oups! Le serveur ne répond pas.";
+    }
     throw {
-      message: "Oups! La page que vous demandez n'existe pas.",
-      status: "404",
+      message,
+      status,
     };
   }
 };

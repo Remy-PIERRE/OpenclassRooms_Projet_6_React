@@ -12,16 +12,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorLayout />,
     children: [
       {
-        children: [
-          { index: true, element: <Home />, loader: fetchAnnonces },
-          {
-            path: "accomodation/:id",
-            element: <Accomodation />,
-            loader: fetchAnnonce,
-          },
-        ],
+        index: true,
+        element: <Home />,
+        loader: fetchAnnonces
       },
-      { path: "about", element: <About />, loader: fetchArticles },
+      {
+        path: "accomodation/:id",
+        element: <Accomodation />,
+        loader: fetchAnnonce,
+      },
+      {
+        path: "about",
+        element: <About />,
+        loader: fetchArticles
+      },
     ],
   },
 ]);

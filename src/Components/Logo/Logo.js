@@ -1,5 +1,6 @@
 import styles from "./Logo.module.css";
 
+/* props.mainColor optional, boolean */
 function Logo({ mainColor }) {
   const logo = ["logoK", "logoHouse", "logoS", "logoA"];
 

@@ -1,11 +1,12 @@
 import Routing from "./Components/Routing/Routing";
+import Footer from "./Components/Footer/Footer";
 
-import "./index.css";
-
+/* App could be remove => index.js only needs */
 function App() {
   return (
     <>
       <Routing />
+      <Footer />
     </>
   );
 }

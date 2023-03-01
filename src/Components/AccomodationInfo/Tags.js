@@ -1,5 +1,6 @@
 import styles from "./Tags.module.css";
 
+/* props.tags mandatory */
 function Tags({ tags }) {
   return (
     <div className={styles["container"]}>

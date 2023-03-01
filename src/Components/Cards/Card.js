@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
-// function Cards({ id, cover, title }) {
+/* props.data mandatory, security layer if undefined / null => render empty cards */
 function Cards({ data }) {
   if (data)
     return (
       <div className={styles["container"]}>
-        <Link
-          className={styles["card"]}
-          to={`accomodation/${data.id}`}
-        >
+        <Link className={styles["card"]} to={`accomodation/${data.id}`}>
           <img src={data.cover} alt={data.title} className={styles["img"]} />
           <p className={styles["title"]}>{data.title}</p>
         </Link>

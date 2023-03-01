@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import styles from "./Header.module.css";
 
+/* link to '/' (<Home />), link to '/about' (<About />) */
 function Header() {
   return (
     <header className={styles["container"]}>

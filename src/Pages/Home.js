@@ -4,6 +4,7 @@ import Banner from "../Components/Banner/Banner";
 import CardsWrapper from "../Components/Cards/CardsWrapper";
 
 function Home() {
+  /* get data from loader */
   const annonces = useLoaderData("annonces");
 
   return (
@@ -19,11 +20,13 @@ function Home() {
 
 export default Home;
 
+/* fetch annonces.json from '/public' before rendering */
 export const fetchAnnonces = async () => {
   try {
     const response = await axios.get("/data/annonces.json");
     return response.data;
   } catch (error) {
+    /* custom message use in '/Pages/Error.js' */
     const status = error.response.status;
     let message = "Oups! La page que vous demandez n'existe pas.";
     if (status >= 500) {

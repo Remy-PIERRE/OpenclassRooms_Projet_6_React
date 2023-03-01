@@ -1,5 +1,6 @@
 import styles from "./Rating.module.css";
 
+/* props.rating mandatory, props.maxRating optional(max number stars rendered) */
 function Rating({ rating, maxRating = 5 }) {
   const stars = [];
   let index = 0;

@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ContainerWithBorderRadius from "../ComponentsLayouts/ContainerWithBorderRadius";
-
 import styles from "./Carousel.module.css";
 
-export default function Carrousel({ pictures, alternate }) {
+/* props.pictures mandatory, props.alternate optionnal */
+export default function Carrousel({ pictures, alternate = "#" }) {
   const totalPicturesConter = pictures.length;
   const [actualPictureConter, setActualPictureCounter] = useState(0);
 
+  /* auto changing picture to next, need to clear it each re-rendering */
   const intervalTimer = setTimeout(() => {
     setActualPictureCounter((prevState) => {
       return prevState === totalPicturesConter - 1 ? 0 : prevState + 1;
     });
   }, 5000);
 
+  /*render prev pricture */
   const prevPictureHandler = () => {
     clearInterval(intervalTimer);
     setActualPictureCounter((prevState) => {
       return prevState === 0 ? totalPicturesConter - 1 : prevState - 1;
     });
   };
+  /* render next picture */
   const nextPictureHandler = () => {
     clearInterval(intervalTimer);
     setActualPictureCounter((prevState) => {

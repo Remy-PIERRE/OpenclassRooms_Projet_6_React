@@ -2,22 +2,13 @@ import ContainerWithBorderRadius from "../ComponentsLayouts/ContainerWithBorderR
 import Card from "./Card";
 import styles from "./CardsWrapper.module.css";
 
-function CardsWrapper({
-  data,
-  maxRenderingCards = 9,
-  maxLoadingRenderingCards = 6,
-}) {
+/* props.data mandatory, props.maxRenderingCards optionnal */
+function CardsWrapper({ data, maxRenderingCards = 6 }) {
   const annonceCards = () => {
     const cards = [];
-    const maxCards = Array.isArray(data) ? maxRenderingCards : maxLoadingRenderingCards;
     let i = 0;
-    while (i < maxCards) {
-      cards.push(
-        <Card
-          key={i}
-          data={Array.isArray(data) && data[i]}
-        />
-      );
+    while (i < maxRenderingCards) {
+      cards.push(<Card key={i} data={Array.isArray(data) && data[i]} />);
       i++;
     }
     return cards;

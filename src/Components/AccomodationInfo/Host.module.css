@@ -1,17 +1,17 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .container p {
-    width: 100px;
-    padding-right: 15px;
-    text-align: end;
-    font-size: 18px;
-    color: var(--color-main);
+  width: 100px;
+  padding-right: 15px;
+  text-align: end;
+  font-size: 18px;
+  color: var(--color-main);
 }
 .container img {
-    width: 64px;
-    height: auto;
-    border-radius: 100%;
+  width: 64px;
+  height: auto;
+  border-radius: 100%;
 }

@@ -1,5 +1,6 @@
 import styles from "./Title.module.css";
 
+/* props.title, props.location mandatory */
 function Title({ title, location }) {
   return (
     <div className={styles["container"]}>

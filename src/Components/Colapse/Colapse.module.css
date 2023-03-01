@@ -9,6 +9,8 @@
   align-items: center;
   background: var(--color-main);
   border-radius: 10px;
+  position: relative;
+  z-index: 1;
 }
 .title h1 {
   font-size: 18px;
@@ -23,17 +25,18 @@
   transform: rotate(180deg);
 }
 .container p {
+  margin-top: -15px;
   padding: 30px 20px 20px;
   background: #f6f6f6;
   color: var(--color-main);
   font-size: 14px;
   line-height: 150%;
+  border-radius: 0 0 10px 10px;
 }
 .container ul {
   padding: 30px 20px 20px;
   background: #f6f6f6;
 }
 .container ul p {
-  padding: 0;
+  padding: 0 0 20px;
 }
-

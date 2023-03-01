@@ -1,7 +1,9 @@
 import { useState } from "react";
-import styles from "./FoldableArticle.module.css";
+import styles from "./Colapse.module.css";
 
-function FoldableArticle({ title, text, list }) {
+/*<details></details><summary></summary> */
+
+function Colapse({ title, text, list }) {
   const [opened, setOpened] = useState(false);
 
   const clickHandler = () => {
@@ -29,7 +31,7 @@ function FoldableArticle({ title, text, list }) {
       </div>
 
       {opened && text && (
-        <p tabIndex="0" onClick={clickHandler} onKeyDown={keyDownHandler}>
+        <p tabIndex="0" onClick={clickHandler} onKeyDown={keyDownHandler}> 
           {text}
         </p>
       )}
@@ -49,4 +51,4 @@ function FoldableArticle({ title, text, list }) {
   );
 }
 
-export default FoldableArticle;
+export default Colapse;

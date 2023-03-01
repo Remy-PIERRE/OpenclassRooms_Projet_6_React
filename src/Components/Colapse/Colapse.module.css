@@ -37,6 +37,12 @@
   padding: 30px 20px 20px;
   background: #f6f6f6;
 }
+.container li {
+  margin-bottom: 20px;
+}
 .container ul p {
-  padding: 0 0 20px;
+  padding: 0;
+}
+.details[open] i {
+  transform: rotate(180deg);
 }

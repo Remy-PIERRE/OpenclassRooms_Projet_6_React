@@ -4,11 +4,10 @@ import { Outlet, useNavigation, useLocation } from "react-router-dom";
 import Header from "../Components/Header/Header";
 
 function PageLayout() {
-  /* navigate use to know when route's loader is running */
+  /* navigate use to know when route's loader is running (navigate.state => 'loading' or 'idle') */
   const navigate = useNavigation();
-  /* location use to detect any route's change */
+  /* location use to detect any route's change (location.path or location.key)*/
   const location = useLocation();
-
   /* onChangeRoute => going to top of page */
   useEffect(() => {
     document.documentElement.scrollTo({

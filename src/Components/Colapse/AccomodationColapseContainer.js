@@ -1,10 +1,9 @@
-import styles from "./AccomodationColapseContainer.module.css";
 import Colapse from "./Colapse";
 
-function AccomodationColapseContainer({annonce}) {
+function AccomodationColapseContainer({ annonce }) {
   return (
-    <div className={styles['container']}>
-      <Colapse title="Description" text={annonce.description} style={{width: '100% !important'}}/>
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 md:gap-20">
+      <Colapse title="Description" text={annonce.description} />
       <Colapse title="Equipements" list={annonce.equipments} />
     </div>
   );

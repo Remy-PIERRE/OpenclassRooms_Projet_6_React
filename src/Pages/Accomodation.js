@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
-import Carousel from "../Components/Carousel/Carousel";
+import Carousel from "../Components/Carousel";
 import AccomodationInfo from "../Components/AccomodationInfo/AccomodationInfo";
 import AccomodationColapseContainer from "../Components/Colapse/AccomodationColapseContainer";
 

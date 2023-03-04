@@ -1,5 +1,3 @@
-import styles from "./Rating.module.css";
-
 /* props.rating mandatory, props.maxRating optional(max number stars rendered) */
 function Rating({ rating, maxRating = 5 }) {
   const stars = [];
@@ -7,8 +5,8 @@ function Rating({ rating, maxRating = 5 }) {
   while (index < +maxRating) {
     stars.push(
       <i
-        className={`fa-sharp fa-solid fa-star ${
-          rating > index && styles["active"]
+        className={`fa-sharp fa-solid fa-star text-[1.5rem] md:text-[2.5rem] ${
+          rating > index ? "text-main" : "text-starGrey"
         }`}
         key={index}
       ></i>
@@ -16,7 +14,10 @@ function Rating({ rating, maxRating = 5 }) {
     index++;
   }
   return (
-    <div className={styles["container"]} tabIndex="0">
+    <div
+      className="flex justify-end items-center gap-[3px] md:gap-[1rem]"
+      tabIndex="0"
+    >
       {stars}
     </div>
   );

@@ -1,6 +1,4 @@
-import ContainerWithBorderRadius from "../ComponentsLayouts/ContainerWithBorderRadius";
 import Card from "./Card";
-import styles from "./CardsWrapper.module.css";
 
 /* props.data mandatory, props.maxRenderingCards optionnal */
 function CardsWrapper({ data, maxRenderingCards = 50 }) {
@@ -17,9 +15,9 @@ function CardsWrapper({ data, maxRenderingCards = 50 }) {
   };
 
   return (
-    <ContainerWithBorderRadius className={styles["container"]}>
+    <div className="md:p-[3rem] grid grid-cols-1 md:grid-cols-3 md:bg-bgGrey rounded-[1rem] md:rounded-[2rem]">
       {annonceCards()}
-    </ContainerWithBorderRadius>
+    </div>
   );
 }
 

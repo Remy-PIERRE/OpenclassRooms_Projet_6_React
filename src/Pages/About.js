@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
-import Banner from "../Components/Banner/Banner";
+import Banner from "../Components/Banner";
 import AboutColapseContainer from "../Components/Colapse/AboutColapseContainer";
 
 function About() {

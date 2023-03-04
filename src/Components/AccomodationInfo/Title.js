@@ -1,11 +1,13 @@
-import styles from "./Title.module.css";
-
 /* props.title, props.location mandatory */
 function Title({ title, location }) {
   return (
-    <div className={styles["container"]}>
-      <h1 tabIndex="0">{title}</h1>
-      <p tabIndex="0">{location}</p>
+    <div>
+      <h1 className="text-[1.8rem] md:text-[3.6rem] text-main" tabIndex="0">
+        {title}
+      </h1>
+      <p className="mb-8 text-[1.4rem] md:text-[1.8rem] text-main" tabIndex="0">
+        {location}
+      </p>
     </div>
   );
 }

@@ -1,10 +1,8 @@
 import Colapse from "./Colapse";
-import styles from "./AboutColapseContainer.module.css";
-
 /* props.articles mandatory */
 function AboutColapseContainer({ articles }) {
   return (
-    <div className={styles["container"]}>
+    <div className="w-full md:w-[80%] mx-auto">
       {articles &&
         articles.map(({ title, text }) => (
           <Colapse key={title} title={title} text={text} />

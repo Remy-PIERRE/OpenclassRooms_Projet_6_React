@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useWindowWidth from "../../hook/useWindowWidth";
 import ContainerWithBorderRadius from "../ComponentsLayouts/ContainerWithBorderRadius";
 import styles from "./Carousel.module.css";
 
@@ -6,6 +7,8 @@ import styles from "./Carousel.module.css";
 export default function Carrousel({ pictures, alternate = "#" }) {
   const totalPicturesConter = pictures.length;
   const [actualPictureConter, setActualPictureCounter] = useState(0);
+  /* get window.innerWidth => if < 768px no counter displayed */
+  const width = useWindowWidth();
 
   /* auto changing picture to next, need to clear it each re-rendering */
   const intervalTimer = setTimeout(() => {
@@ -42,7 +45,7 @@ export default function Carrousel({ pictures, alternate = "#" }) {
           </button>
         </div>
       )}
-      {totalPicturesConter > 1 && (
+      {totalPicturesConter > 1 && width > 768 && (
         <div className={styles["counter"]}>
           <span>{`${actualPictureConter + 1}/${totalPicturesConter}`}</span>
         </div>

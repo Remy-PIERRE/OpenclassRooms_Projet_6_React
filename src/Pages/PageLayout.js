@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigation, useLocation } from "react-router-dom";
 /* <Header /> in router is mandatory (use <NavLink />) */
-import Header from "../Components/Header/Header";
+import Header from "../Components/Header";
 
 function PageLayout() {
   /* navigate use to know when route's loader is running (navigate.state => 'loading' or 'idle') */

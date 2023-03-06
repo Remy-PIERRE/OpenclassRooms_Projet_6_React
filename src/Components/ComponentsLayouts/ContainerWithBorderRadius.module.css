@@ -1,8 +1,0 @@
-.container {
-  border-radius: 10px;
-}
-@media (min-width: 768px) {
-  .container {
-    border-radius: 25px;
-  }
-}

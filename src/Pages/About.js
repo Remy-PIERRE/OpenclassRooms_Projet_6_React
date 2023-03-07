@@ -20,7 +20,7 @@ export default About;
 /* fetch about.json from '/public' before rendering */
 export const fetchArticles = async () => {
   try {
-    const response = await axios.get("/data/about.json");
+    const response = await axios.get("https://projet-6---oc---react-default-rtdb.europe-west1.firebasedatabase.app/about.json");
     return response.data;
   } catch (error) {
     /* custom message use in '/Pages/Error.js' */

@@ -23,7 +23,9 @@ export default Home;
 /* fetch annonces.json from '/public' before rendering */
 export const fetchAnnonces = async () => {
   try {
-    const response = await axios.get("/data/annonces.json");
+    const response = await axios.get(
+      "https://projet-6---oc---react-default-rtdb.europe-west1.firebasedatabase.app/annonces.json"
+    );
     return response.data;
   } catch (error) {
     /* custom message use in '/Pages/Error.js' */

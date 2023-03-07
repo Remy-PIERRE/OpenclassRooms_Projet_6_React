@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home, { fetchAnnonces } from "../../Pages/Home";
-import About, { fetchArticles } from "../../Pages/About";
-import Accomodation, { fetchAnnonce } from "../../Pages/Accomodation";
-import PageLayout from "../../Pages/PageLayout";
-import ErrorLayout from "../../Pages/Error";
+import Home, { fetchAnnonces } from "../Pages/Home";
+import About, { fetchArticles } from "../Pages/About";
+import Accomodation, { fetchAnnonce } from "../Pages/Accomodation";
+import PageLayout from "../Pages/PageLayout";
+import ErrorLayout from "../Pages/Error";
 
 const router = createBrowserRouter([
   {

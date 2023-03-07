@@ -1,4 +1,4 @@
-import Routing from "./Components/Routing/Routing";
+import Routing from "./Components/Routing";
 import Footer from "./Components/Footer";
 
 /* App could be remove => index.js only needs */

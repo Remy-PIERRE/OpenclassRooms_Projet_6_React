@@ -23,7 +23,7 @@ export default Accomodation;
 export const fetchAnnonce = async ({ params }) => {
   const { id } = params;
   try {
-    const response = await axios.get("/data/annonces.json");
+    const response = await axios.get("https://projet-6---oc---react-default-rtdb.europe-west1.firebasedatabase.app/annonces.json");
     return response.data.find((annonce) => annonce.id === id);
   } catch (error) {
     /* custom message use in '/Pages/Error.js' */

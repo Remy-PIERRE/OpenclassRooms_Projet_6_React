@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useWindowWidth from "../../hook/useWindowWidth";
 import ContainerWithBorderRadius from "../ComponentsLayouts/ContainerWithBorderRadius";
 import styles from "./Carousel.module.css";
@@ -10,23 +10,25 @@ export default function Carrousel({ pictures, alternate = "#" }) {
   /* get window.innerWidth => if < 768px no counter displayed */
   const width = useWindowWidth();
 
-  /* auto changing picture to next, need to clear it each re-rendering */
-  const intervalTimer = setTimeout(() => {
-    setActualPictureCounter((prevState) => {
-      return prevState === totalPicturesConter - 1 ? 0 : prevState + 1;
-    });
-  }, 5000);
+  /* next picture with timer, auto-clean on picture change */
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setActualPictureCounter((prevState) => {
+        return prevState === totalPicturesConter - 1 ? 0 : prevState + 1;
+      });
+    }, 5000);
+
+    return () => clearTimeout(timeoutId);
+  }, [actualPictureConter]);
 
   /*render prev pricture */
   const prevPictureHandler = () => {
-    clearInterval(intervalTimer);
     setActualPictureCounter((prevState) => {
       return prevState === 0 ? totalPicturesConter - 1 : prevState - 1;
     });
   };
   /* render next picture */
   const nextPictureHandler = () => {
-    clearInterval(intervalTimer);
     setActualPictureCounter((prevState) => {
       return prevState === totalPicturesConter - 1 ? 0 : prevState + 1;
     });
